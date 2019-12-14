@@ -1,0 +1,68 @@
+body {
+  font-size: 90%;
+  margin: 8px;
+}
+
+h3 span {
+  display: block;
+  font-size: 65%;
+  color: gray;
+  font-weight: normal;
+  letter-spacing: 0.4em;
+  margin-bottom: 15px
+}
+
+.messenger {
+  width: 50%;
+  height: 40%;
+  min-width: 375px;
+  margin: 0;
+  padding: 1em;
+  display: inline-block;
+  border: 3px solid #999;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+  
+h2 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+  .friend-chooser {
+    float: right;
+    margin-top: -20px;
+  }
+
+  .composer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    grid-gap: 5px;
+  }
+
+  .message {
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    font-family: 'Book Antiqua', 'Georgia';
+    border: 2px solid;
+    margin-top: 0.8em;
+    padding: 0.5em;
+    left: 35%;
+    border-color: rgba(21,180,45,1.0);
+    background-color: rgba(21,180,45,0.4);
+  }
+
+    .self {
+      left: 0;
+      border-color: rgba(189,189,189,1.0);
+      background-color: rgba(189,189,189,0.4);
+    }
+
+footer {
+  font-style: italic;
+  margin: 1em 5em;
+  text-align: center;
+}

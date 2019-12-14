@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title>Enlightened Messenger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/semantic/semantic.css">
+  <link rel="stylesheet" href="/styles/enlightenedMessenger.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="/enlightenedMessenger.js"></script>
+  <script src="/friends.service.js"></script>
+  <script src="/messages.service.js"></script>
+</head>
+
+<body ng-app="enlightenedMessenger">
+
+  <header>
+    <h3>The Englightened Messenger 
+      <span>partying like it's 1699</span>
+    </h3>
+  </header>
+  
+  <section ng-controller="messengerCtrl">
+    <div class="messenger"
+        ng-repeat="friend in friends">
+      <h2>{{ friend.name }}</h2> 
+      <div class="friend-chooser">
+        Messaging       
+        <select ng-model="friend.interlocutor"
+            ng-options="f.id as f.name for f in friends | filter:{id: '!' + friend.id}">
+        </select>
+      </div>
+      <form class="composer">
+        <textarea rows="2"
+            ng-model="friend.newMessage"
+            ng-keyup="$event.keyCode === 13 && addMessage(friend)">
+        </textarea>
+        <button class="ui primary button" 
+            ng-click="addMessage(friend)">
+          Send
+        </button>
+      </form>
+      <div class="message"
+          ng-class="{self: msg.from === friend.id}"
+          ng-repeat="msg in getMessages(friend) | orderBy:'-when'">
+        {{ msg.message }}
+      </div>
+    </div>
+  </section>
+
+  <footer>"Insults are the arguments employed by those who are in the wrong."
+    <br> - Jean-Jacques Rousseau
+  </footer>
+
+</body>
+</html>
