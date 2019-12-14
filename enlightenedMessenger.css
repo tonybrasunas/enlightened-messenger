@@ -42,13 +42,17 @@ h2 {
     grid-gap: 5px;
   }
 
+    textarea {
+      padding: 0.4em;
+    }
+
   .message {
     width: 60%;
     position: relative;
     border-radius: 8px;
     font-family: 'Book Antiqua', 'Georgia';
     border: 2px solid;
-    margin-top: 0.8em;
+    margin: 1em 0;
     padding: 0.5em;
     left: 35%;
     border-color: rgba(21,180,45,1.0);
