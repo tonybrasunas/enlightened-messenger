@@ -3,8 +3,8 @@
   <title>Enlightened Messenger</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="/semantic/semantic.css">
-  <link rel="stylesheet" href="/styles/enlightenedMessenger.css">
+  <link rel="stylesheet" href="/vendor/semantic.css">
+  <link rel="stylesheet" href="/enlightenedMessenger.css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
   <script src="/enlightenedMessenger.js"></script>
@@ -25,12 +25,14 @@
         ng-repeat="friend in friends">
       <h2>{{ friend.name }}</h2> 
       <div class="friend-chooser">
-        Messaging       
+        Messaging
+        <!-- Allow each user to select any *other* user for messaging -->
         <select ng-model="friend.interlocutor"
             ng-options="f.id as f.name for f in friends | filter:{id: '!' + friend.id}">
         </select>
       </div>
       <form class="composer">
+        <!-- Enable return key to submit form and add a message -->
         <textarea rows="2"
             ng-model="friend.newMessage"
             ng-keyup="$event.keyCode === 13 && addMessage(friend)">

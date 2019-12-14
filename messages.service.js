@@ -1,3 +1,7 @@
+/* Service here to stub messages data, 
+ * and enable fetching and adding message data 
+ * for friends / users of the messenger client.
+ */
 
 enlightenedMessenger.factory('Messages', () => {
         
@@ -104,32 +108,27 @@ enlightenedMessenger.factory('Messages', () => {
       },
     ]
   
-   const msgService = {  
-     addMessage: (friend) => {
-        const datetime = new Date().toLocaleString()
-        console.log('Ok heres the date for the new comment', datetime)
-        console.log('from this friend', friend)
+    const msgService = {  
+      addMessage: (friend) => {
+        const rightnow = new Date().toLocaleString()
         messages.push({
           from:     friend.id,
           to:       friend.interlocutor,
-          when:     datetime,
+          when:     rightnow,
           message:  friend.newMessage
         })
-     },
+      },
 
-    getMessages: (friend) => {
-      console.log('Get messages from this friend', friend)
-      const msgs = messages.filter(msg => {
+      getMessages: (friend) => messages.filter(msg => {
         return (msg.from === friend.id && msg.to === friend.interlocutor)
           || (msg.to === friend.id && msg.from === friend.interlocutor)
       })
-      console.log(msgs)
-      return msgs
-    },
-  }
+    }
 
-  return msgService
+    return msgService
+                             
 })
+
 
 /******************************************************
  * Additional Quotes from the Philosophers
